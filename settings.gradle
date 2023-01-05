@@ -16,3 +16,4 @@ rootProject.name = "FastCampus"
 include ':app'
 include ':chapter1'
 include ':chapter2'
+include ':chapter3'
