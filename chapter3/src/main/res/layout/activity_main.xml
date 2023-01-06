@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/name_text_view"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름"
         android:layout_marginStart="36dp"
+        android:text="이름"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/Title"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name_value_text_view"
@@ -22,21 +22,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
-        android:text="홍길동홍길동홍길동홍길동홍길동"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
+        android:text="홍길동홍길동홍길동홍길동홍길동"
         app:layout_constraintBaseline_toBaselineOf="@id/name_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <TextView
         android:id="@+id/birth_date_text_view"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="생년월일"
         app:layout_constraintStart_toStartOf="@id/name_text_view"
-        app:layout_constraintTop_toBottomOf="@id/name_text_view"
-        style="@style/Title"/>
+        app:layout_constraintTop_toBottomOf="@id/name_text_view" />
 
     <TextView
         android:id="@+id/birth_date_value_text_view"
@@ -50,12 +50,12 @@
 
     <TextView
         android:id="@+id/blood_type_text_view"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="형액형"
         app:layout_constraintStart_toStartOf="@id/birth_date_text_view"
-        app:layout_constraintTop_toBottomOf="@id/birth_date_text_view"
-        style="@style/Title"/>
+        app:layout_constraintTop_toBottomOf="@id/birth_date_text_view" />
 
     <TextView
         android:id="@+id/blood_type_value_text_view"
@@ -69,31 +69,41 @@
 
     <TextView
         android:id="@+id/emergency_contact_text_view"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="비상 연락처"
         app:layout_constraintStart_toStartOf="@id/blood_type_text_view"
-        app:layout_constraintTop_toBottomOf="@id/blood_type_text_view"
-        style="@style/Title"/>
+        app:layout_constraintTop_toBottomOf="@id/blood_type_text_view" />
 
     <TextView
         android:id="@+id/emergency_contact_value_text_view"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="0000-0000-0000"
         app:layout_constraintBaseline_toBaselineOf="@id/emergency_contact_text_view"
-        app:layout_constraintEnd_toEndOf="@id/name_value_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_phone_24"
+        app:layout_constraintBottom_toBottomOf="@id/emergency_contact_text_view"
+        app:layout_constraintEnd_toEndOf="@id/name_value_text_view"
+        app:layout_constraintTop_toTopOf="@id/emergency_contact_value_text_view" />
 
     <TextView
         android:id="@+id/warning_text_view"
+        style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="주의사항"
         app:layout_constraintStart_toStartOf="@id/emergency_contact_text_view"
-        app:layout_constraintTop_toBottomOf="@id/emergency_contact_text_view"
-        style="@style/Title"/>
+        app:layout_constraintTop_toBottomOf="@id/emergency_contact_text_view" />
 
     <TextView
         android:id="@+id/warning_value_text_view"
@@ -110,15 +120,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.4"/>
+        app:layout_constraintGuide_percent="0.4" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/go_input_activity_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_margin="36dp"
-        app:srcCompat="@drawable/ic_baseline_edit_24"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="36dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@id/go_input_activity_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/emergencyContactLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageView"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

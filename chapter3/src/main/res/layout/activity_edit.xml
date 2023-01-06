@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="@id/blood_type_text_view"
         app:layout_constraintTop_toBottomOf="@id/blood_type_text_view" />
 
-    <TextView
+    <EditText
         android:id="@+id/emergency_contact_edit_text"
         style="@style/Value"
         android:layout_width="0dp"
@@ -154,14 +154,14 @@
         app:layout_constraintGuide_percent="0.4" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/go_input_activity_button"
+        android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="36dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_edit_24" />
+        app:srcCompat="@drawable/ic_baseline_save_24" />
 
     <androidx.constraintlayout.helper.widget.Layer
         android:id="@+id/birth_date_layer"
