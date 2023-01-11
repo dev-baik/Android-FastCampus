@@ -1,5 +1,7 @@
 package com.example.chapter5
 
+import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.TextView
@@ -85,6 +87,11 @@ class MainActivity : AppCompatActivity() {
                     binding.countDownProgressBar.progress = progress.toInt()
                 }
             }
+            if (currentDeciSecond == 0 && currentCountdownDeciSecond < 31 && currentCountdownDeciSecond % 10 == 0) {
+                val toneType = if(currentCountdownDeciSecond == 0) ToneGenerator.TONE_CDMA_HIGH_L else ToneGenerator.TONE_CDMA_ANSWER
+                ToneGenerator(AudioManager.STREAM_ALARM, ToneGenerator.MAX_VOLUME)
+                    .startTone(toneType, 100)
+            }
         }
     }
 
@@ -100,6 +107,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.countDownGroup.isVisible = true
         initCountdownViews()
+        binding.lapContainerLinearLayout.removeAllViews()
     }
 
     private fun pause() {
@@ -108,6 +116,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun lap() {
+        if (currentDeciSecond == 0) return
         val container = binding.lapContainerLinearLayout
         TextView(this).apply {
             textSize = 20f
@@ -115,8 +124,8 @@ class MainActivity : AppCompatActivity() {
             val minutes = currentDeciSecond.div(10) / 60
             val seconds = currentDeciSecond.div(10) % 60
             val deciSeconds = currentDeciSecond % 10
-            text = container.childCount.inc().toString() + String.format(
-                ". %02d:%02d %01d",
+            text = "${container.childCount.inc()}. " + String.format(
+                "%02d:%02d %01d",
                 minutes,
                 seconds,
                 deciSeconds
