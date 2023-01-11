@@ -1,12 +1,14 @@
 package com.example.chapter5
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import com.example.chapter5.databinding.ActivityMainBinding
 import com.example.chapter5.databinding.DialogCountdownSettingBinding
-import kotlinx.coroutines.NonCancellable.start
 import java.util.*
 import kotlin.concurrent.timer
 
@@ -106,6 +108,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun lap() {
+        val container = binding.lapContainerLinearLayout
+        TextView(this).apply {
+            textSize = 20f
+            gravity = Gravity.CENTER
+            val minutes = currentDeciSecond.div(10) / 60
+            val seconds = currentDeciSecond.div(10) % 60
+            val deciSeconds = currentDeciSecond % 10
+            text = container.childCount.inc().toString() + String.format(
+                ". %02d:%02d %01d",
+                minutes,
+                seconds,
+                deciSeconds
+            )
+            setPadding(30)
+        }.let { labTextView ->
+            container.addView(labTextView, 0)
+        }
 
     }
 
