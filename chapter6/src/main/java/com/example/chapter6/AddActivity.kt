@@ -22,7 +22,6 @@ class AddActivity : AppCompatActivity() {
         initViews()
         binding.addButton.setOnClickListener {
             if(originWord == null) add() else edit()
-            add()
         }
     }
 
@@ -34,15 +33,15 @@ class AddActivity : AppCompatActivity() {
             }
         }
 
-    binding.textInputEditText.addTextChangedListener {
-        it?.let { text ->
-            binding.textTextInputLayout.error = when(text.length) {
-                0 -> "값을 입력해주세요"
-                1 -> "2자 이상을 입력해주세요"
-                else -> null
+        binding.textInputEditText.addTextChangedListener {
+            it?.let { text ->
+                binding.textTextInputLayout.error = when(text.length) {
+                    0 -> "값을 입력해주세요"
+                    1 -> "2자 이상을 입력해주세요"
+                    else -> null
+                }
             }
         }
-    }
 
         originWord = intent.getParcelableExtra("originWord")
         originWord?.let { word ->
