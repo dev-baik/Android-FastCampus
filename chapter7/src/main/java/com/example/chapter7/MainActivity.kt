@@ -2,17 +2,23 @@ package com.example.chapter7
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chapter7.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val imageLoadLauncher = registerForActivityResult(ActivityResultContracts.GetMultipleContents()) { uriList ->
+        updateImages(uriList)
+    }
+    private lateinit var imageAdapter: ImageAdapter
 
     companion object {
         const val REQUEST_READ_EXTERNAL_STORAGE = 100
@@ -25,6 +31,20 @@ class MainActivity : AppCompatActivity() {
 
         binding.loadImageButton.setOnClickListener {
             checkPermission()
+        }
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        imageAdapter = ImageAdapter(object : ImageAdapter.ItemClickListener {
+            override fun onLoadMoreClick() {
+                checkPermission()
+            }
+        })
+
+        binding.imageRecyclerView.apply {
+            adapter = imageAdapter
+            layoutManager = GridLayoutManager(context, 2)
         }
     }
 
@@ -47,11 +67,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private fun loadImage() {
-        Toast.makeText(this, "이미지를 가져올 예정", Toast.LENGTH_SHORT).show()
+        imageLoadLauncher.launch("image/*")
+    }
+
+    private fun updateImages(uriList: List<Uri>) {
+        val images = uriList.map { ImageItems.Image(it) }
+        val updatedImages = imageAdapter.currentList.toMutableList().apply { addAll(images)}
+        imageAdapter.submitList(updatedImages)
     }
 
     private fun showPermissionInfoDialog() {
@@ -70,5 +95,22 @@ class MainActivity : AppCompatActivity() {
             arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
             REQUEST_READ_EXTERNAL_STORAGE
         )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray,
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        when(requestCode) {
+            REQUEST_READ_EXTERNAL_STORAGE -> {
+                val resultCode = grantResults.firstOrNull() ?: PackageManager.PERMISSION_DENIED
+                if(resultCode == PackageManager.PERMISSION_GRANTED) {
+                    loadImage()
+                }
+            }
+        }
     }
 }
