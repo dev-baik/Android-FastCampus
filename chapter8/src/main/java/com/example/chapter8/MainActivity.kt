@@ -1,13 +1,12 @@
 package com.example.chapter8
 
-import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.chapter8.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,21 +19,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mediaPlayerPlay() {
-        if(mediaPlayer == null) {
-            mediaPlayer = MediaPlayer.create(this, R.raw.music).apply {
-                isLooping = true
-            }
-        }
-        mediaPlayer?.start()
+        val intent = Intent(this, MediaPlayerService::class.java)
+            .apply { action = MEDIA_PLAYER_PLAY }
+        startService(intent)
     }
 
     private fun mediaPlayerPause() {
-        mediaPlayer?.pause()
+        val intent = Intent(this, MediaPlayerService::class.java)
+            .apply { action = MEDIA_PLAYER_PAUSE }
+        startService(intent)
     }
 
     private fun mediaPlayerStop() {
-        mediaPlayer?.stop()
-        mediaPlayer?.release()
-        mediaPlayer = null
+        val intent = Intent(this, MediaPlayerService::class.java)
+            .apply { action = MEDIA_PLAYER_STOP }
+        startService(intent)
     }
 }
