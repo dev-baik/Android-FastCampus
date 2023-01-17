@@ -1,10 +1,13 @@
 package com.example.chapter8
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chapter8.databinding.ActivityMainBinding
 
+@RequiresApi(Build.VERSION_CODES.O)
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -34,5 +37,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, MediaPlayerService::class.java)
             .apply { action = MEDIA_PLAYER_STOP }
         startService(intent)
+    }
+
+    override fun onDestroy() {
+        stopService(Intent(this, MediaPlayerService::class.java))
+        super.onDestroy()
     }
 }
