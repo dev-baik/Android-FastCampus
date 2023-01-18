@@ -74,6 +74,7 @@ class WebViewFragment(
             dialog.setNegativeButton("취소") { dialogInterface, _ ->
                 dialogInterface.cancel()
             }
+            dialog.show()
         }
     }
 
