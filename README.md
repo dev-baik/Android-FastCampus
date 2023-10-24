@@ -10,7 +10,7 @@
 - [Kotlin 중급](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A4%91%EA%B8%89.md)
 - val, var
 - 복합대입 연산자 (+=)
-- 산술 연산자
+- [산술 연산자](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A0%95%EB%A6%AC.md#%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90)
 - isNullOrEmpty
 
 ## Android
