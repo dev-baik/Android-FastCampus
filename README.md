@@ -4,7 +4,7 @@
 - [ConstraintLayout](https://developer.android.com/training/constraint-layout?hl=ko)
     - [Guideline](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Guideline), [Flow](https://developer.android.com/reference/kotlin/androidx/constraintlayout/helper/widget/Flow)
 - [Layer](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Layer)
-- TextView, Button, EditText, ImageView, RadioButton, CheckBox
+- TextView, Button, EditText, ImageView, RadioButton, CheckBox, ProgressBar
 - [Spinner](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#AdapterViews)
 - [DatePickerDialog](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#DatePickerDialog)
 - [dp, sp](https://developer.android.com/training/multiscreen/screendensities?hl=ko)
@@ -23,6 +23,7 @@
 
 ## Android
 - [Android 기본](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EA%B8%B0%EB%B3%B8.md)
+- [Thread](https://developer.android.com/guide/components/processes-and-threads?hl=ko#Threads)
 - [Manifest](https://developer.android.com/guide/topics/manifest/manifest-intro?hl=ko)
 - [Activity](https://developer.android.com/guide/components/activities?hl=ko)
 - [ActivityLifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko)
@@ -35,6 +36,9 @@
 - R 파일
 - [findViewById](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#id)
 - [ViewBinding](https://developer.android.com/topic/libraries/view-binding?hl=ko)
+- [AlertDialog](https://developer.android.com/guide/topics/ui/dialogs?hl=ko)
+- [ToneGenerator](https://developer.android.com/reference/android/media/ToneGenerator)
+- [addView](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#addView)
 - setOnClickListener, addTextChangedListener
 - [DecimalFormat](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#DecimalFormat)
 - Log
