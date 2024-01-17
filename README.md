@@ -1,68 +1,27 @@
 ## [UI](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md)
-- [사용자 인터페이스 및 탐색](https://developer.android.com/guide/topics/ui?hl=ko)
-- [LinearLayout](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#layout-params)
-- [ConstraintLayout](https://developer.android.com/training/constraint-layout?hl=ko)
-    - [Guideline](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Guideline), [Barrier](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Barrier), [Flow](https://developer.android.com/reference/kotlin/androidx/constraintlayout/helper/widget/Flow) 
-- [Layer](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Layer)
-- [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview?hl=ko)
-  - [어댑터로 레이아웃 빌드](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#AdapterViews)
-- TextView, Button, EditText, ImageView, RadioButton, CheckBox, ProgressBar
-- [Spinner](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#AdapterViews)
-- [TextInputLayout, TextInputEditText](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#TextInputLayout-TextInputEditText)
-- [ChipGroup](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#ChipGroup)
-- [DatePickerDialog](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#DatePickerDialog)
-- [dp, sp](https://developer.android.com/training/multiscreen/screendensities?hl=ko)
-- [Style](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Style)
-- Theme, Color(Light/Dark)
+- Chapter01-3 : [Guideline](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Guideline), [Style](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Style), [Layer](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Layer), [DatePickerDialog](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#DatePickerDialog), [Spinner](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Spinner)
+- Chapter01-4 : [Flow](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#flow), Theme/Color(Light/Dark), [BigDecimal](https://ducktyping.tistory.com/19)
+- Chapter01-5 : ProgressBar(Horizontal), [NumberPicker](https://min-wachya.tistory.com/218)
+- Chapter01-6 : [Barrier](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Barrier), [TextInputLayout, TextInputEditText](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#TextInputLayout-TextInputEditText), [ChipGroup](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#ChipGroup)(checkedChipId)
 
-## [Kotlin](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A0%95%EB%A6%AC.md)
-- [Kotlin 기초](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EA%B8%B0%EC%B4%88.md)
-- [Kotlin 중급](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A4%91%EA%B8%89.md)
-- val, var, const val
-- [data class](https://kotlinlang.org/docs/data-classes.html#properties-declared-in-the-class-body)
-- 복합대입 연산자 (+=)
-- [산술 연산자](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A0%95%EB%A6%AC.md#%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90)
-- isNullOrEmpty, toBigDecimal
-- with
-- StringBuilder
 
-## Android
-- [Android 기본](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EA%B8%B0%EB%B3%B8.md)
-- [Thread](https://developer.android.com/guide/components/processes-and-threads?hl=ko#Threads)
-- [Manifest](https://developer.android.com/guide/topics/manifest/manifest-intro?hl=ko)
-- [Activity](https://developer.android.com/guide/components/activities?hl=ko)
-- [ActivityLifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko)
-- [onSaveInstanceState](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko#save-simple,-lightweight-ui-state-using-onsaveinstancestate)
-- [Intent](https://developer.android.com/guide/components/intents-filters?hl=ko)
-    - [화면 전환](https://developer.android.com/training/basics/firstapp/starting-activity?hl=ko)
-    - [전화 앱 실행](https://developer.android.com/guide/components/intents-common?hl=ko#DialPhone)
-- [SharedPreference](https://developer.android.com/training/data-storage/shared-preferences?hl=ko)
-- [Room](https://developer.android.com/training/data-storage/room?hl=ko)
-- [registerForActivityResult](https://developer.android.com/training/basics/intents/result?hl=ko)
-- Toast
-- R 파일
-- [findViewById](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko#id)
-- [ViewBinding](https://developer.android.com/topic/libraries/view-binding?hl=ko)
-- [AlertDialog](https://developer.android.com/guide/topics/ui/dialogs?hl=ko)
-- [ToneGenerator](https://developer.android.com/reference/android/media/ToneGenerator)
-- [addView](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#addView)
-- setOnClickListener, addTextChangedListener
-- [DecimalFormat](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#DecimalFormat)
-- Parcelize
-- Log
+## [Kotlin](https://velog.io/@dev-baik/Kotlin)
+- [Kotlin 정리](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A0%95%EB%A6%AC.md)
+- Chapter01-2 : 산술 연산자(plus, minus, times, div, mod/rem), not. [isNullOrEmpty](https://codechacha.com/ko/kotlin-string-null-empty-check/)
+- Chapter01-3 : [val/var/const val](https://velog.io/@dev-baik/%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8), [let/run/apply/also/with](https://velog.io/@dev-baik/%EB%B2%94%EC%9C%84-%EC%A7%80%EC%A0%95-%ED%95%A8%EC%88%98)
+- Chapter01-4 : [StringBuilder](https://velog.io/@dev-baik/String-vs-StringBuilder-vs-StringBuffer)([append, clear](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-string-builder/)), [DecimalFormat](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#DecimalFormat)
+- Chapter01-6 : [Parcelize](https://developer.android.com/kotlin/parcelize?hl=ko), [data class](https://velog.io/@dev-baik/Data-Class), [indexOfFirst](https://gold.gitbook.io/kotlin/collections/elements-operations/indexoffirst), [firstOrNull](https://gold.gitbook.io/kotlin/collections/elements-operations/firstornull)
+- Chapter01-7 : [filterIsInstance](https://blog.yena.io/studynote/2020/01/22/Kotlin-Collection-Filter.html), [toTypedArray](https://www.techiedelight.com/ko/convert-list-to-array-kotlin/)
+- Chapter02-2 : [take, takeLast](https://kotlinworld.com/12)
 
-## 한걸음 더
-> 화면의 방향이 변경된다면 어떻게 해야할까요?
-1. 값을 유지하라면 어떻게 해야할까요?
-    - part1-chapter3 강의 참고
-2. 화면 방향에 상관없이 버튼을 보이게 하려면 어떻게 해야할까요?
-    - numberTextView의 height 값을 지정하지 말고, weight를 이용
 
-> weight 를 넣을 때 dimension 에 왜 0dp 를 넣으라고 했을까요? [레이아웃 가중치](https://developer.android.com/guide/topics/ui/layout/linear?hl=ko#Weight)
-- LinearLayout 의 weight 값이 잘 적용되기 위해선, orientation에 따라, width 또는 height 의 값이 0dp 여야 함
-    - orientation: vertical -> layout_height=“0dp”
-    - orientation: horizontal -> layout_width="0dp"
-
-> 소수점이 정확하지 않은 이유는 뭘까요? [부동소수점](https://ko.wikipedia.org/wiki/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90)
-- Java 에서는 실수를 표현할 때는 부동 소수점 방식을 사용 하는데 이 때, 오차가 생길 수 있다. 근사값을 이용하기 때문이다. 부정확성을 해결하기 위해, BigDecimal 이라는 자료형을 사용하면 된다.
-    - 상세한 이유는 이해하지 못하더라도, 소수점이 정확하지 않을 수 있다는 점을 인지하고, 정확한 계산을 필요로 할 때는 다른 자료형을 사용하면 됨
+## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
+- chapter01-2 : [addTextChangedListener](https://hulrud.tistory.com/37), [onSaveInstanceState](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko#save-simple,-lightweight-ui-state-using-onsaveinstancestate), [onRestoreInstanceState](https://developer.android.com/guide/components/activities/activity-lifecycle?hl=ko#restore-activity-ui-state-using-saved-instance-state)
+- chapter01-3 : [SharedPreference](https://developer.android.com/training/data-storage/shared-preferences?hl=ko)(apply, clear), [Intent](https://developer.android.com/guide/components/intents-filters?hl=ko)([화면 전환](https://developer.android.com/training/basics/firstapp/starting-activity?hl=ko), [전화 앱 실행](https://developer.android.com/guide/components/intents-common?hl=ko#DialPhone))
+- Chapter01-5 : [Timer](https://magicalcode.tistory.com/entry/%EC%BD%94%ED%8B%80%EB%A6%B0%EC%9C%BC%EB%A1%9C-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C2), [Thread](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#thread), [ToneGenerator](https://developer.android.com/reference/android/media/ToneGenerator), [Custom AlertDialog](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#Custom-AlertDialog), [addView](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#addView)
+- Chapter01-6 : [Room](정리중), [registerForActivityResult](https://developer.android.com/training/basics/intents/result?hl=ko)
+- Chapter01-7 : requestPermissions, image/*, DiffUtil, viewType, [onCreateOptionsMenu, onOptionsItemSelected](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#%EC%98%B5%EC%85%98-%EB%A9%94%EB%89%B4), [TabLayoutMediator](https://dev-baik.tistory.com/entry/ViewPager2%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-Tab%EC%9C%BC%EB%A1%9C-%EC%8A%A4%EC%99%80%EC%9D%B4%ED%94%84-%EB%B7%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0), toolbar 
+- Chapter01-8 : [BroadcastReceiver(receiver)](https://dev-baik.tistory.com/entry/Broadcast-Receiver-Codelab-PowerReceiver), [Service(MEDIA_PLAYER)](https://dev-baik.tistory.com/entry/Service-Component), Notification
+- Chapter02-1 : [WebViewClient](https://readystory.tistory.com/181)(supportFragmentManager.fragments), TabLayoutMediator(tab 텍스트 변경)
+- Chapter02-2 : [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder?hl=ko), Timer([Handler + Runnable](정리중)), [View(context, attrs, defStyleAttr)](https://velog.io/@dev-baik/View)
+- Chapter02-3 : ServerSocket 
