@@ -13,6 +13,7 @@
 - Chapter01-6 : [Parcelize](https://developer.android.com/kotlin/parcelize?hl=ko), [data class](https://velog.io/@dev-baik/Data-Class), [indexOfFirst](https://gold.gitbook.io/kotlin/collections/elements-operations/indexoffirst), [firstOrNull](https://gold.gitbook.io/kotlin/collections/elements-operations/firstornull)
 - Chapter01-7 : [filterIsInstance](https://blog.yena.io/studynote/2020/01/22/Kotlin-Collection-Filter.html), [toTypedArray](https://www.techiedelight.com/ko/convert-list-to-array-kotlin/)
 - Chapter02-2 : [take, takeLast](https://kotlinworld.com/12)
+- Chapter02-4 : [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html), [orEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/or-empty.html)
 
 
 ## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
@@ -23,5 +24,6 @@
 - Chapter01-7 : requestPermissions, image/*, DiffUtil, viewType, [onCreateOptionsMenu, onOptionsItemSelected](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md#%EC%98%B5%EC%85%98-%EB%A9%94%EB%89%B4), [TabLayoutMediator](https://dev-baik.tistory.com/entry/ViewPager2%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-Tab%EC%9C%BC%EB%A1%9C-%EC%8A%A4%EC%99%80%EC%9D%B4%ED%94%84-%EB%B7%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0), toolbar 
 - Chapter01-8 : [BroadcastReceiver(receiver)](https://dev-baik.tistory.com/entry/Broadcast-Receiver-Codelab-PowerReceiver), [Service(MEDIA_PLAYER)](https://dev-baik.tistory.com/entry/Service-Component), Notification
 - Chapter02-1 : [WebViewClient](https://readystory.tistory.com/181)(supportFragmentManager.fragments), TabLayoutMediator(tab 텍스트 변경)
-- Chapter02-2 : [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder?hl=ko), Timer([Handler + Runnable](정리중)), [View(context, attrs, defStyleAttr)](https://velog.io/@dev-baik/View)
+- Chapter02-2 : [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder?hl=ko), Timer([Handler + Runnable](정리중), removeCallbacks), [View(context, attrs, defStyleAttr)](https://velog.io/@dev-baik/View)
 - Chapter02-3 : ServerSocket 
+- Chapter02-4 : addInterceptor, addTextChangedListener(Handler + Runnable), addOnScrollListener(Paging)
