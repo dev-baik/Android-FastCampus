@@ -3,6 +3,7 @@
 - Chapter01-4 : [Flow](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#flow), Theme/Color(Light/Dark), [BigDecimal](https://ducktyping.tistory.com/19)
 - Chapter01-5 : ProgressBar(Horizontal), [NumberPicker](https://min-wachya.tistory.com/218)
 - Chapter01-6 : [Barrier](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Barrier), [TextInputLayout, TextInputEditText](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#TextInputLayout-TextInputEditText), [ChipGroup](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#ChipGroup)(checkedChipId)
+- Chapter02-5 : Chip(clearCheck), LottieAnimationView, TextInputLayout(IME_ACTION_SEARCH)
 
 
 ## [Kotlin](https://velog.io/@dev-baik/Kotlin)
@@ -14,6 +15,7 @@
 - Chapter01-7 : [filterIsInstance](https://blog.yena.io/studynote/2020/01/22/Kotlin-Collection-Filter.html), [toTypedArray](https://www.techiedelight.com/ko/convert-list-to-array-kotlin/)
 - Chapter02-2 : [take, takeLast](https://kotlinworld.com/12)
 - Chapter02-4 : [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html), [orEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/or-empty.html)
+- Chapter02-5 : [forEachIndexed](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each-indexed.html), [find](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find.html), fun List<NewsItem>.transform(): List<NewsModel> { ... }
 
 
 ## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
@@ -27,3 +29,4 @@
 - Chapter02-2 : [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder?hl=ko), Timer([Handler + Runnable](정리중), removeCallbacks), [View(context, attrs, defStyleAttr)](https://velog.io/@dev-baik/View)
 - Chapter02-3 : ServerSocket 
 - Chapter02-4 : addInterceptor, addTextChangedListener(Handler + Runnable), addOnScrollListener(Paging)
+- Chapter02-5 : TikXml(exceptionOnUnreadXml, Xml, Element, PropertyElement), 
