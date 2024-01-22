@@ -59,4 +59,7 @@ dependencies {
 
     // FCM
     implementation "com.google.firebase:firebase-messaging-ktx"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:4.10.0"
 }
