@@ -16,6 +16,7 @@
 - Chapter02-2 : [take, takeLast](https://kotlinworld.com/12)
 - Chapter02-4 : [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html), [orEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/or-empty.html)
 - Chapter02-5 : [forEachIndexed](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each-indexed.html), [find](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find.html), fun List<NewsItem>.transform(): List<NewsModel> { ... }
+- Chapter02-6 : [getValue()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/get-value.html)
 
 
 ## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
@@ -29,4 +30,5 @@
 - Chapter02-2 : [MediaRecorder](https://developer.android.com/guide/topics/media/mediarecorder?hl=ko), Timer([Handler + Runnable](정리중), removeCallbacks), [View(context, attrs, defStyleAttr)](https://velog.io/@dev-baik/View)
 - Chapter02-3 : ServerSocket 
 - Chapter02-4 : addInterceptor, addTextChangedListener(Handler + Runnable), addOnScrollListener(Paging)
-- Chapter02-5 : TikXml(exceptionOnUnreadXml, Xml, Element, PropertyElement), 
+- Chapter02-5 : TikXml(exceptionOnUnreadXml, Xml, Element, PropertyElement)
+- Chapter02-6 : Firebase(Authentication, Realtime Database, FCM), FirebaseMessagingService, AdapterDataObserver, OkHttp3(Retrofit X)
