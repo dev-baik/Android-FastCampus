@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.chapter02_6.Key.Companion.DB_CHATS
 import com.example.chapter02_6.Key.Companion.DB_CHAT_ROOMS
 import com.example.chapter02_6.Key.Companion.DB_USERS
@@ -30,6 +31,8 @@ import java.io.IOException
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatdetailBinding
+    private lateinit var chatAdapter: ChatAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     private var chatRoomId: String = ""
     private var otherUserId: String = ""
@@ -50,7 +53,8 @@ class ChatActivity : AppCompatActivity() {
 
         myUserId = Firebase.auth.currentUser?.uid ?: ""
 
-        val chatAdapter = ChatAdapter()
+        chatAdapter = ChatAdapter()
+        linearLayoutManager = LinearLayoutManager(applicationContext)
 
         Firebase.database.reference.child(DB_USERS).child(myUserId).get()
             .addOnSuccessListener {
@@ -87,9 +91,21 @@ class ChatActivity : AppCompatActivity() {
             })
 
         binding.chatRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = linearLayoutManager
             adapter = chatAdapter
         }
+
+        chatAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                super.onItemRangeInserted(positionStart, itemCount)
+
+                linearLayoutManager.smoothScrollToPosition(
+                    binding.chatRecyclerView,
+                    null,
+                    chatAdapter.itemCount
+                )
+            }
+        })
 
         binding.sendButton.setOnClickListener {
             val message = binding.messageEditText.text.toString()
