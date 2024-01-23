@@ -3,6 +3,7 @@ package com.example.chapter02_7
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,14 +14,19 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import com.example.chapter02_7.databinding.ActivityMainBinding
+import com.example.chapter02_7.databinding.ItemForecastBinding
 import com.google.android.gms.location.LocationServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
     private val locationPermissionRequest = registerForActivityResult(
@@ -45,11 +51,10 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION))
-
-
     }
 
     private fun transformRainType(forecast: ForecastEntity): String {
@@ -86,6 +91,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         fusedLocationClient.lastLocation.addOnSuccessListener {
+            Thread {
+                try {
+                    val addressList = Geocoder(this, Locale.KOREA).getFromLocation(
+                        it.latitude,
+                        it.longitude,
+                        1
+                    )
+                    runOnUiThread {
+                        Log.e("태그", addressList?.get(0).toString())
+                        binding.locationTextView.text = addressList?.get(0)?.thoroughfare.orEmpty()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }.start()
+
             val retrofit = Retrofit.Builder()
                 .baseUrl("http://apis.data.go.kr/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -131,6 +152,38 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+
+                    val list = forecastDateTimeMap.values.toMutableList()
+                    list.sortWith { f1, f2 ->
+                        val f1DateTime = "${f1.forecastDate}${f1.forecastTime}"
+                        val f2DateTime = "${f2.forecastDate}${f2.forecastTime}"
+
+                        return@sortWith f1DateTime.compareTo(f2DateTime)
+                    }
+
+                    val currentForecast = list.first()
+                    binding.temperatureTextView.text =
+                        getString(R.string.temperature_text, currentForecast.temperature)
+                    binding.skyTextView.text = currentForecast.weather
+                    binding.precipitationTextView.text =
+                        getString(R.string.precipitation_text, currentForecast.precipitation)
+
+                    binding.childForecastLayout.apply {
+                        list.forEachIndexed { index, forecast ->
+                            if (index == 0) {
+                                return@forEachIndexed
+                            }
+
+                            val itemView = ItemForecastBinding.inflate(layoutInflater)
+                            itemView.timeTextView.text = forecast.forecastTime
+                            itemView.weatherTextView.text = forecast.weather
+                            itemView.temperatureTextView.text =
+                                getString(R.string.temperature_text, forecast.temperature)
+
+                            addView(itemView.root)
+                        }
+                    }
+
                     Log.e("태그", forecastDateTimeMap.toString())
                 }
 
