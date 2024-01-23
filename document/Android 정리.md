@@ -224,6 +224,11 @@ private fun lap() {
 
 binding.lapContainerLinearLayout.removeAllViews()
 ```
+```kotlin
+val itemView = ItemForecastBinding.inflate(layoutInflater)
+itemView.timeTextView.text = forecast.forecastTime
+addView(itemView.root)
+```
 
 ### Custom AlertDialog
 ```kotlin
