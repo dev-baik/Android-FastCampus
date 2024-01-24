@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         moveCamera(it)
     }
 
+    private var markers = emptyList<Marker>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -58,7 +60,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                                 return
                             }
 
-                            val markers = searchItemList.map {
+                            markers.forEach {
+                                it.map = null
+                            }
+
+                            markers = searchItemList.map {
                                 Marker(LatLng(it.mapy.toDouble() / 10000000, it.mapx.toDouble() / 10000000)).apply {
                                     captionText = it.title
                                     map = naverMap
