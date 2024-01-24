@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="naver_client_id">8dfbv1pvne</string>
+    <string name="naver_search_client_id">YkhGXhNBey0x2jFl58Cb</string>
+    <string name="naver_search_client_secret">2g_A9yLt42</string>
 </resources>
