@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chapter02_8.databinding.ActivityMainBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraAnimation
 import com.naver.maps.map.CameraUpdate
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private var isMapInit = false
 
     private var restaurantListAdapter = RestaurantListAdapter {
+        collapseBottomSheet()
         moveCamera(it)
     }
 
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                             }
 
                             restaurantListAdapter.setData(searchItemList)
-
+                            collapseBottomSheet()
                             moveCamera(markers.first().position)
                         }
 
@@ -89,6 +92,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val cameraUpdate = CameraUpdate.scrollTo(position)
             .animate(CameraAnimation.Easing)
         naverMap.moveCamera(cameraUpdate)
+    }
+
+    private fun collapseBottomSheet() {
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheetLayout.root)
+        bottomSheetBehavior.state = STATE_COLLAPSED
     }
 
     override fun onStart() {
