@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private var restaurantListAdapter = RestaurantListAdapter {
         collapseBottomSheet()
-        moveCamera(it)
+        moveCamera(it, 17.0)
     }
 
     private var markers = emptyList<Marker>()
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
                             restaurantListAdapter.setData(searchItemList)
                             collapseBottomSheet()
-                            moveCamera(markers.first().position)
+                            moveCamera(markers.first().position, 14.0)
                         }
 
                         override fun onFailure(call: Call<SearchResult>, t: Throwable) {
@@ -92,10 +92,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
-    private fun moveCamera(position: LatLng) {
+    private fun moveCamera(position: LatLng, zooLevel: Double) {
         if (isMapInit.not()) return
 
-        val cameraUpdate = CameraUpdate.scrollTo(position)
+        val cameraUpdate = CameraUpdate.scrollAndZoomTo(position, zooLevel)
             .animate(CameraAnimation.Easing)
         naverMap.moveCamera(cameraUpdate)
     }
