@@ -1,6 +1,7 @@
 package com.example.chapter02_8
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chapter02_8.databinding.ActivityMainBinding
 import com.naver.maps.geometry.LatLng
@@ -8,6 +9,9 @@ import com.naver.maps.map.CameraAnimation
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -23,6 +27,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync(this)
+
+        SearchRepository.getGoodRestaurant("서울").enqueue(object : Callback<SearchResult> {
+            override fun onResponse(call: Call<SearchResult>, response: Response<SearchResult>) {
+                Log.e("태그", response.body().toString())
+            }
+
+            override fun onFailure(call: Call<SearchResult>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
     }
 
     override fun onStart() {
