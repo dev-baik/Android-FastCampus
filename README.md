@@ -5,6 +5,7 @@
 - Chapter01-6 : [Barrier](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#Barrier), [TextInputLayout, TextInputEditText](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#TextInputLayout-TextInputEditText), [ChipGroup](https://github.com/dev-baik/Android-FastCampus/blob/master/document/UI%20%EC%A0%95%EB%A6%AC.md#ChipGroup)(checkedChipId)
 - Chapter02-5 : Chip(clearCheck), LottieAnimationView, TextInputLayout(IME_ACTION_SEARCH)
 - Chapter02-8 : [BottomSheet](https://m2.material.io/components/sheets-bottom/android#using-bottom-sheets)(behavior_expandedOffset, behavior_fitToContents, behavior_hideable, behavior_peekHeight), [ConstraintLayout](https://developer.android.com/reference/android/support/constraint/ConstraintLayout)(layout_constraintHorizontal_chainStyle, layout_constraintWidth)
+- Chapter02-9 : CoordinatorLayout + FloatingActionButton(layout_anchor, layout_anchorGravity), [LottieAnimationView](https://m.blog.naver.com/saqwzx002/222111854733)(scaleX, scaleY, alpha)(withStartAction, withEndAction + start)
 
 
 ## [Kotlin](https://velog.io/@dev-baik/Kotlin)
@@ -18,7 +19,8 @@
 - Chapter02-4 : [count](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html), [orEmpty](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/or-empty.html)
 - Chapter02-5 : [forEachIndexed](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each-indexed.html), [find](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find.html), fun List<NewsItem>.transform(): List<NewsModel> { ... }
 - Chapter02-6 : [getValue](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/get-value.html)
-- Chapter02-7 : [sortWith](https://codechacha.com/ko/kotlin-sorting-list/)
+- Chapter02-7 : [sortWith](https://codechacha.com/ko/kotlin-sorting-list/), LocalDateTime
+- Chapter02-9 : System.currentTimeMillis()
 
 
 ## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
@@ -36,3 +38,4 @@
 - Chapter02-6 : Firebase(Authentication, Realtime Database, FCM), FirebaseMessagingService, AdapterDataObserver, OkHttp3(Retrofit X)
 - Chapter02-7 : [SETTINGS](https://hellose7.tistory.com/84), [LocationServices](https://developer.android.com/training/location/retrieve-current?hl=ko), [Geocoder](https://developer.android.com/reference/kotlin/android/location/Geocoder), [successCallback, failureCallback], [AppWidget](https://developer.android.com/guide/topics/appwidgets?hl=ko), [PendingIntent](https://velog.io/@haero_kim/Android-PendingIntent-%EA%B0%9C%EB%85%90-%EC%9D%B5%ED%9E%88%EA%B8%B0)(getActivity, getForegroundService), [RemoteViews](https://developer.android.com/guide/topics/appwidgets?hl=ko#CreatingLayout), [백그라운드에서 포그라운드 서비스 실행이 허용되는 경우](https://developer.android.com/about/versions/12/foreground-services?hl=ko#cases-fgs-background-starts-allowed)([startForegroundService](https://developer.android.com/develop/background-work/services/foreground-services?hl=ko), [startForeground](https://developer.android.com/guide/components/services?hl=ko#Foreground))
 - Chapter02-8 : Naver Map, Search, [Moshi](https://github.com/square/moshi)(JsonClass, field), Interceptor
+- Chapter02-9 : [Kakao Login](https://developers.kakao.com/docs/latest/ko/kakaologin/android), Firebase(FirebaseAuthUserCollisionException), [Google Map](https://developers.google.com/maps/documentation/android-sdk/start?hl=ko)([CameraUpdateFactory](https://developers.google.com/maps/documentation/android-sdk/views?hl=ko#moving_the_camera), [moveCamera, animateCamera](https://developers.google.com/maps/documentation/android-sdk/views?hl=ko#updating_the_camera_view), [set(OnMarker, OnMap)ClickListener](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap)), [FusedLocationProviderClient](https://developer.android.com/training/location/retrieve-current?hl=ko)([requestLocationUpdates](https://developer.android.com/training/location/retrieve-current?hl=ko#BestEstimate)([locationRequest](https://developer.android.com/training/location/change-location-settings?hl=ko), [LocationCallback](https://developer.android.com/training/location/request-updates?hl=ko))), Realtime Database(addValueEventListener, addChildEventListener), Glide(transform(RoundedCorners), RequestListener\<Bitmap>)
