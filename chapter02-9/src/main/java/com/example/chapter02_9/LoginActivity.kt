@@ -44,6 +44,18 @@ class LoginActivity : AppCompatActivity() {
 
         KakaoSdk.init(this, "8c2bb2fbf2ab9ac07c289b3b760fadc1")
 
+        if (Firebase.auth.currentUser != null) {
+            navigateToMapActivity()
+        }
+
+//        if (AuthApiClient.instance.hasToken()) {
+//            UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+//                if (error == null) {
+//                    getKakaoAccountInfo()
+//                }
+//            }
+//        }
+
         emailLoginResult =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == RESULT_OK) {
