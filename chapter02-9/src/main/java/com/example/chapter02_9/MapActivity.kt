@@ -32,10 +32,12 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -98,7 +100,39 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         requestLocationPermission()
+        setUpEmojiAnimationView()
         setupFirebaseDatabase()
+    }
+
+    private fun setUpEmojiAnimationView() {
+        binding.emojiLottieAnimationView.setOnClickListener {
+            if (trackingPersonId != "") {
+                val lastEmoji = mutableMapOf<String, Any>()
+                lastEmoji["type"] = "star"
+                lastEmoji["lastModifier"] = System.currentTimeMillis()
+
+                Firebase.database.reference.child("Emoji").child(trackingPersonId)
+                    .updateChildren(lastEmoji)
+            }
+
+            binding.emojiLottieAnimationView.playAnimation()
+
+            binding.dummyLottieAnimationView.animate()
+                .scaleX(3f)
+                .scaleY(3f)
+                .alpha(0f)
+                .withStartAction {
+                    binding.dummyLottieAnimationView.scaleX = 1f
+                    binding.dummyLottieAnimationView.scaleY = 1f
+                    binding.dummyLottieAnimationView.alpha = 1f
+                }.withEndAction {
+                    binding.dummyLottieAnimationView.scaleX = 1f
+                    binding.dummyLottieAnimationView.scaleY = 1f
+                    binding.dummyLottieAnimationView.alpha = 1f
+                }.start()
+        }
+        binding.emojiLottieAnimationView.speed = 3f
+        binding.centerLottieAnimationView.speed = 3f
     }
 
     override fun onResume() {
@@ -195,6 +229,25 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
 
                 override fun onCancelled(error: DatabaseError) {}
             })
+
+        Firebase.database.reference.child("Emoji").child(Firebase.auth.currentUser?.uid ?: "")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    binding.centerLottieAnimationView.playAnimation()
+                    binding.centerLottieAnimationView.animate()
+                        .scaleX(7f)
+                        .scaleY(7f)
+                        .alpha(0.3f)
+                        .setDuration(binding.centerLottieAnimationView.duration / 3)
+                        .withEndAction {
+                            binding.centerLottieAnimationView.scaleX = 0f
+                            binding.centerLottieAnimationView.scaleY = 0f
+                            binding.centerLottieAnimationView.alpha = 1f
+                        }.start()
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
     }
 
     private fun makeNewMarker(person: Person, uid: String): Marker? {
@@ -256,6 +309,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
 
     override fun onMarkerClick(marker: Marker): Boolean {
         trackingPersonId = marker.tag as? String ?: ""
+
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.emojiBottomSheetLayout)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
 
         return false
     }
