@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FastCampus">
         <activity
-            android:name=".MainActivity"
+            android:name=".MapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +33,10 @@
                     android:scheme="kakao8c2bb2fbf2ab9ac07c289b3b760fadc1" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
 
         <activity android:name=".LoginActivity" />
     </application>

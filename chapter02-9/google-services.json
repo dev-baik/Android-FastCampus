@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "341200318823",
+    "project_id": "fastcampus-ch02-9",
+    "storage_bucket": "fastcampus-ch02-9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341200318823:android:8ae4608c50bdf337b93fc2",
+        "android_client_info": {
+          "package_name": "com.example.chapter02_9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9l6mqzhJIJX7eHFTxernSVKOdL_UNtzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
