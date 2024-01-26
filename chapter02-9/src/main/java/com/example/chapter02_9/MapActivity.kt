@@ -37,7 +37,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -138,6 +137,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
 
     private fun setupCurrentLocationView() {
         binding.currentLocationButton.setOnClickListener {
+            trackingPersonId = ""
             moveLastLocation()
         }
     }
@@ -156,7 +156,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
         }
 
         fusedLocationClient.lastLocation.addOnSuccessListener {
-            googleMap.animateCamera(
+            googleMap.moveCamera(
                 CameraUpdateFactory.newLatLngZoom(LatLng(it.latitude, it.longitude), 16.0f)
             )
         }
@@ -254,8 +254,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
             })
 
         Firebase.database.reference.child("Emoji").child(Firebase.auth.currentUser?.uid ?: "")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+            .addChildEventListener(object : ChildEventListener {
+                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {}
+
+                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                     binding.centerLottieAnimationView.playAnimation()
                     binding.centerLottieAnimationView.animate()
                         .scaleX(7f)
@@ -268,6 +270,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
                             binding.centerLottieAnimationView.alpha = 1f
                         }.start()
                 }
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {}
+
+                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
 
                 override fun onCancelled(error: DatabaseError) {}
             })
