@@ -24,8 +24,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         Log.e("태그", Utility.getKeyHash(this))
 
-//        startActivity(Intent(this, LoginActivity::class.java))
-
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
