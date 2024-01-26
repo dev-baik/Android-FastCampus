@@ -101,6 +101,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
 
         requestLocationPermission()
         setUpEmojiAnimationView()
+        setupCurrentLocationView()
         setupFirebaseDatabase()
     }
 
@@ -133,6 +134,32 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
         }
         binding.emojiLottieAnimationView.speed = 3f
         binding.centerLottieAnimationView.speed = 3f
+    }
+
+    private fun setupCurrentLocationView() {
+        binding.currentLocationButton.setOnClickListener {
+            moveLastLocation()
+        }
+    }
+
+    private fun moveLastLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestLocationPermission()
+            return
+        }
+
+        fusedLocationClient.lastLocation.addOnSuccessListener {
+            googleMap.animateCamera(
+                CameraUpdateFactory.newLatLngZoom(LatLng(it.latitude, it.longitude), 16.0f)
+            )
+        }
     }
 
     override fun onResume() {
@@ -170,11 +197,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListen
             Looper.getMainLooper()
         )
 
-        fusedLocationClient.lastLocation.addOnSuccessListener {
-            googleMap.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(LatLng(it.latitude, it.longitude), 16.0f)
-            )
-        }
+        moveLastLocation()
     }
 
     private fun requestLocationPermission() {
