@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_articleFragment"
             app:destination="@id/articleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bookmarkArticleFragment"
+            app:destination="@id/bookmarkArticleFragment" />
     </fragment>
 
     <fragment
@@ -49,10 +52,20 @@
         android:id="@+id/articleFragment"
         android:name="com.example.chapter02_10.ui.article.ArticleFragment"
         android:label="글 상세 {articleId}"
-        tools:layout="@layout/fragment_article" >
+        tools:layout="@layout/fragment_article">
 
         <argument
             android:name="articleId"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookmarkArticleFragment"
+        android:name="com.example.chapter02_10.ui.bookmark.BookmarkArticleFragment"
+        android:label="북마크"
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_bookmarkArticleFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
     </fragment>
 </navigation>
