@@ -2,7 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FastCampus" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">#84FFFF</item>
+
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
