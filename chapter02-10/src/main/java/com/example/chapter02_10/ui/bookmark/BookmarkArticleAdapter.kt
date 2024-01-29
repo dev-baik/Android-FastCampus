@@ -1,4 +1,4 @@
-package com.example.chapter02_10.ui.home
+package com.example.chapter02_10.ui.bookmark
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

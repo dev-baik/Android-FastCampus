@@ -8,7 +8,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.chapter02_10.R
 import com.example.chapter02_10.databinding.FragmentBookmarkBinding
-import com.example.chapter02_10.ui.home.BookmarkArticleAdapter
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.toObject
