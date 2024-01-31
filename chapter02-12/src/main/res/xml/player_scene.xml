@@ -9,7 +9,8 @@
         motion:motionInterpolator="linear">
 
         <OnSwipe
-            motion:touchAnchorId="@id/videoPlayerContainer" />
+            motion:touchAnchorId="@id/videoPlayerContainer"
+            motion:touchRegionId="@id/videoPlayerContainer" />
         <OnClick
             motion:clickAction="transitionToEnd"
             motion:targetId="@id/videoPlayerContainer" />
