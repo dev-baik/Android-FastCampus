@@ -1,7 +1,6 @@
 package com.example.chapter02_12
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chapter02_12.databinding.ActivityMainBinding
@@ -18,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        videoAdapter = VideoAdapter(context = this)
+        videoAdapter = VideoAdapter(context = this) { videoItem ->
+            binding.motionLayout.setTransition(R.id.collapse, R.id.expand)
+            binding.motionLayout.transitionToEnd()
+        }
+
+        binding.motionLayout.jumpToState(R.id.collapse)
 
         binding.videoListRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
