@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chapter02_12.databinding.ActivityMainBinding
+import com.example.chapter02_12.player.PlayerHeader
+import com.example.chapter02_12.player.PlayerVideoAdapter
+import com.example.chapter02_12.player.transform
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -33,13 +36,14 @@ class MainActivity : AppCompatActivity() {
         initVideoRecyclerView()
         initPlayerVideoRecyclerView()
         initControlButton()
+        initHideButton()
+    }
 
+    private fun initHideButton() {
         binding.hideButton.setOnClickListener {
             binding.motionLayout.transitionToState(R.id.hide)
             player?.pause()
         }
-
-        videoAdapter.submitList(videoList.videos)
     }
 
     private fun initControlButton() {
@@ -59,10 +63,20 @@ class MainActivity : AppCompatActivity() {
             binding.motionLayout.setTransition(R.id.collapse, R.id.expand)
             binding.motionLayout.transitionToEnd()
 
-            val list = listOf(videoItem) + videoList.videos.filter { it.id != videoItem.id }
+            val headerModel = PlayerHeader(
+                id = "H${videoItem.id}",
+                title = videoItem.title,
+                channelName = videoItem.channelName,
+                viewCount = videoItem.viewCount,
+                dateText = videoItem.dateText,
+                channelThumb = videoItem.channelThumb
+            )
+
+            val list = listOf(headerModel) + videoList.videos.filter { it.id != videoItem.id }
+                .map { it.transform() }
             playerVideoAdapter.submitList(list)
 
-            play(videoItem)
+            play(videoItem.videoUrl, videoItem.title)
         }
 
         binding.videoListRecyclerView.apply {
@@ -70,21 +84,33 @@ class MainActivity : AppCompatActivity() {
             adapter = videoAdapter
         }
 
-        val videoList = readData("videos.json", VideoList::class.java) ?: VideoList(emptyList())
         videoAdapter.submitList(videoList.videos)
     }
 
     private fun initPlayerVideoRecyclerView() {
-        playerVideoAdapter = PlayerVideoAdapter(context = this) { videoItem ->
-            play(videoItem)
+        playerVideoAdapter = PlayerVideoAdapter(context = this) { playerVideo ->
+            play(playerVideo.videoUrl, playerVideo.title)
 
-            val list = listOf(videoItem) + videoList.videos.filter { it.id != videoItem.id }
-            playerVideoAdapter.submitList(list)
+            val headerModel = PlayerHeader(
+                id = "H${playerVideo.id}",
+                title = playerVideo.title,
+                channelName = playerVideo.channelName,
+                viewCount = playerVideo.viewCount,
+                dateText = playerVideo.dateText,
+                channelThumb = playerVideo.channelThumb
+            )
+
+            val list = listOf(headerModel) + videoList.videos.filter { it.id != playerVideo.id }
+                .map { it.transform() }
+            playerVideoAdapter.submitList(list) {
+                binding.playerRecyclerView.scrollToPosition(0)
+            }
         }
 
         binding.playerRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = playerVideoAdapter
+            itemAnimator = null
         }
     }
 
@@ -144,12 +170,12 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    private fun play(videoItem: VideoItem) {
-        player?.setMediaItem(MediaItem.fromUri(Uri.parse(videoItem.videoUrl)))
+    private fun play(videoUrl: String, videoTitle: String) {
+        player?.setMediaItem(MediaItem.fromUri(Uri.parse(videoUrl)))
         player?.prepare()
         player?.play()
 
-        binding.videoTitleTextView.text = videoItem.title
+        binding.videoTitleTextView.text = videoTitle
     }
 
     override fun onStart() {
