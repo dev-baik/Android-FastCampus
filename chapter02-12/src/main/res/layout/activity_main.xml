@@ -53,15 +53,16 @@
         android:layout_height="0dp"
         android:background="@color/white"
         app:layout_constraintDimensionRatio="H,16:9"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_기constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/playerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/black"
+        app:controller_layout_id="@layout/layout_youtube_player_control"
         app:layout_constraintBottom_toBottomOf="@id/videoPlayerContainer"
         app:layout_constraintEnd_toEndOf="@id/videoPlayerContainer"
         app:layout_constraintStart_toStartOf="@id/videoPlayerContainer"
