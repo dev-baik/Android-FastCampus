@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">요튜브</string>
     <string name="sub_title_video_info">%s • 조회수 %s • %s</string>
+    <string name="header_sub_title_video_info">조회수 %s • %s</string>
     <string name="home">home</string>
     <string name="storage">storage</string>
 </resources>
