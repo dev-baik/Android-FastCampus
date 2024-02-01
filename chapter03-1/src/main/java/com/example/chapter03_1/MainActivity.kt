@@ -21,16 +21,16 @@ class MainActivity : AppCompatActivity(), FaceAnalyzerListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater).apply {
-            setContentView(root)
-            setProgressText("시작하기를 눌러주세요.")
-            camera.initCamera(binding.cameraLayout, this@MainActivity)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setProgressText("시작하기를 눌러주세요.")
+        camera.initCamera(binding.cameraLayout, this@MainActivity)
 
-            startDetectButton.setOnClickListener {
-                it.isVisible = false
-                camera.startFaceDetect()
-                setProgressText("얼굴을 보여주세요.")
-            }
+        binding.startDetectButton.setOnClickListener {
+            it.isVisible = false
+            binding.faceOverlayView.reset()
+            camera.startFaceDetect()
+            setProgressText("얼굴을 보여주세요.")
         }
     }
 
@@ -42,13 +42,17 @@ class MainActivity : AppCompatActivity(), FaceAnalyzerListener {
         reset()
     }
 
-    override fun notDetect() {}
+    override fun notDetect() {
+        binding.faceOverlayView.reset()
+    }
 
     override fun detectProgress(progress: Float, message: String) {
         setProgressText(message)
     }
 
-    override fun faceSize(rectF: RectF, sizeF: SizeF, pointF: PointF) {}
+    override fun faceSize(rectF: RectF, sizeF: SizeF, pointF: PointF) {
+        binding.faceOverlayView.setSize(rectF, sizeF, pointF)
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
