@@ -44,7 +44,6 @@ class ShuffleNumberKeyboard @JvmOverloads constructor(
                 val randIndex = Random.nextInt(keyNumberArray.size)
                 view.text = keyNumberArray[randIndex]
                 keyNumberArray.removeAt(randIndex)
-                keyNumberArray.removeAt(randIndex)
             }
         }
     }
