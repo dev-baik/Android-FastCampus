@@ -9,6 +9,8 @@
 - Chapter02-10 : anim([enterAnim, popEnterAnim](https://philosopher-chan.tistory.com/1501), [from&toXYDelta](https://ggoreb.tistory.com/8)), app:layout_constraintDimensionRatio="W,10:7", clickable + focusable
 - Chapter02-11 : [CoordinatorLayout](https://kangmin1012.tistory.com/33)(contentScrim, AppBarLayout(addOnOffsetChangedListener)), [MotionLayout](https://developer.android.com/training/constraint-layout/motionlayout?hl=ko)([Ex](https://developer.android.com/develop/ui/views/animations/motionlayout/examples), MotionScene(xml), layoutDescription), nestedScrollingEnabled(true), progressDrawable(layer-list, @android:id), ExtendedFloatingActionButton(extend, shrink) 
 - Chapter02-12 : CustomMotionLayout([GestureDetector](https://developer.android.com/training/gestures/detector?hl=ko#detect-a-subset-of-supported-gestures), [onInterceptTouchEvent](https://developer.android.com/training/gestures/viewgroup?hl=ko)), [PlayerView](https://github.com/google/ExoPlayer)(controller_layout_id, resize_mode), MotionScene(OnSwipe, OnClick, KeyPosition, KeyAttribute)
+- Chapter03-1 : LinearLayout([animateLayoutChanges](https://devvkkid.tistory.com/206), divider), TextInputLayout, TextInputEditText, ChipGroup
+
 
 ## [Kotlin](https://velog.io/@dev-baik/Kotlin)
 - [Kotlin 정리](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Kotlin%20%EC%A0%95%EB%A6%AC.md)
@@ -23,6 +25,7 @@
 - Chapter02-6 : [getValue](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/get-value.html)
 - Chapter02-7 : [sortWith](https://codechacha.com/ko/kotlin-sorting-list/), LocalDateTime
 - Chapter02-9 : System.currentTimeMillis()
+- Chapter03-2 : 정규표현식([용어](https://hamait.tistory.com/342), [Pattern.compile(REGEX).find()](https://medium.com/depayse/kotlin-%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D-regular-expression-%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%B2%95-70b7f3b0db1a)), StringBuffer, reduce
 
 
 ## [Android](https://github.com/dev-baik/Android-FastCampus/blob/master/document/Android%20%EC%A0%95%EB%A6%AC.md)
@@ -44,4 +47,5 @@
 - Chapter02-10 : [Navigation](https://developer.android.com/guide/navigation/navigation-getting-started?hl=ko)([argument](https://developer.android.com/guide/navigation/navigation-pass-data?hl=ko)) + [BottomNavigation](https://developer.android.com/guide/navigation/navigation-ui?hl=ko#bottom_navigation), [Firestore](https://firebase.google.com/docs/firestore/quickstart?hl=ko)([arrayUnion, arrayRemove](https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ko#update_elements_in_an_array), [whereIn](https://firebase.google.com/docs/firestore/query-data/queries?hl=ko#in_not-in_and_array-contains-any)), [Storage](https://firebase.google.com/docs/storage/android/upload-files?hl=ko#upload_from_a_local_file)([downloadUrl](https://firebase.google.com/docs/storage/android/upload-files?hl=ko#get_a_download_url)), [PickVisualMedia](https://developer.android.com/training/data-storage/shared/photopicker?hl=ko)
 - Chapter02-11 : [asset(json)](https://chachas.tistory.com/73)(+ [Gson](https://github.com/google/gson)), [CustomView(with LinearLayout, attr(declare-styleable))](https://developer.android.com/training/custom-views/create-view?hl=ko), [ValueAnimator(addUpdateListener)](https://developer.android.com/guide/topics/graphics/prop-animation?hl=ko)
 - Chapter02-12 : ExoPlayer(useController, onIsPlayingChanged), MotionLayout(jumpToState, transitionTo..., setTransitionListener), getItemViewType(interface)
-- Chapter03-1 : OOP Requst Permissions, [Module](https://developer.android.com/topic/modularization?hl=ko), [CameraX](https://developer.android.com/training/camerax?hl=ko), [Google Vision](https://developers.google.com/ml-kit/vision/face-detection?hl=ko), [Paint](https://developer.android.com/reference/android/graphics/Paint)
+- Chapter03-1 : OOP Requst Permissions, [Module](https://developer.android.com/topic/modularization?hl=ko), [CameraX](https://developer.android.com/training/camerax?hl=ko), [Google Vision](https://developers.google.com/ml-kit/vision/face-detection?hl=ko), [Paint](https://developer.android.com/reference/android/graphics/Paint), Keyboard, OOP [setOnEditorActionListener](https://yuuj.tistory.com/34) 
+- Chapter03-2 : DataBinding + BindingAdapter, BroadcastReceiver([SmsRetriever](https://developers.google.com/identity/sms-retriever/request?authuser=0&hl=ko)), CountDownTimer  
