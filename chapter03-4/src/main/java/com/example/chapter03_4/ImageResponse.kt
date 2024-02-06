@@ -1,4 +1,4 @@
-package com.example.chapter03_4.mvc
+package com.example.chapter03_4
 
 data class ImageResponse(
     val id: String,

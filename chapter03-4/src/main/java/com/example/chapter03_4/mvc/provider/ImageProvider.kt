@@ -1,5 +1,6 @@
-package com.example.chapter03_4.mvc
+package com.example.chapter03_4.mvc.provider
 
+import com.example.chapter03_4.ImageResponse
 import com.example.chapter03_4.RetrofitManager
 import retrofit2.Call
 import retrofit2.Response

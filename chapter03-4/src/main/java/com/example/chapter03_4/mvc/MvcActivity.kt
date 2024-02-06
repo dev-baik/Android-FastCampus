@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.example.chapter03_4.databinding.ActivityMvcBinding
+import com.example.chapter03_4.mvc.provider.ImageProvider
 
 class MvcActivity : AppCompatActivity(), ImageProvider.Callback {
 
