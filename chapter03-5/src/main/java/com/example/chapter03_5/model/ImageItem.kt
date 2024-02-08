@@ -10,7 +10,7 @@ data class ImageListResponse(
 data class ImageItem(
     @SerializedName("thumbnail_url") override val thumbnailUrl: String,
     @SerializedName("collection") val collection: String,
-    @SerializedName("display-sitename") val siteName: String,
+    @SerializedName("display_sitename") val siteName: String,
     @SerializedName("doc_url") val docUrl: String,
     @SerializedName("datetime") override val dateTime: Date,
     override var isFavorite: Boolean
