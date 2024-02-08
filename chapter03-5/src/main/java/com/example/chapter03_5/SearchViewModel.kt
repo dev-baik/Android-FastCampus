@@ -1,5 +1,6 @@
 package com.example.chapter03_5
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,6 +27,7 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
                 _listLiveData.value = list
             }, {
                 _listLiveData.value = emptyList()
+                Log.e("태그", it.toString())
             })
         )
     }

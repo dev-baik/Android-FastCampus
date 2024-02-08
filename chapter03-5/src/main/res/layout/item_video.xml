@@ -22,7 +22,7 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:scaleType="centerCrop"
-            app:item="@{item.thumbnailUrl}"
+            app:image="@{item.thumbnailUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
