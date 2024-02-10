@@ -15,4 +15,8 @@ class ContentRepositoryImpl @Inject constructor(private val contentDao: ContentD
     override suspend fun insert(item: ContentEntity) {
         contentDao.insert(item)
     }
+
+    override suspend fun modify(item: ContentEntity) {
+        contentDao.insert(item)
+    }
 }
