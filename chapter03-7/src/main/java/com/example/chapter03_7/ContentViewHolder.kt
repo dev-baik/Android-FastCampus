@@ -7,7 +7,7 @@ import com.example.chapter03_7.model.ContentEntity
 
 class ContentViewHolder(
     private val binding: ItemContentBinding,
-    private val handler: MainActivity.Handler
+    private val handler: MainActivity.Handler? = null
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: ContentEntity) {
@@ -15,7 +15,7 @@ class ContentViewHolder(
         binding.handler = handler
 
         binding.contentCheckBox.paintFlags = if (item.isDone) {
-            binding.contentCheckBox.paintFlags + Paint.STRIKE_THRU_TEXT_FLAG
+            Paint.STRIKE_THRU_TEXT_FLAG
         } else {
             0
         }

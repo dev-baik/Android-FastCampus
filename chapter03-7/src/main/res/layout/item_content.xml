@@ -17,7 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{() -> handler.onClickItem(item)"
+        android:onClick="@{() -> handler.onClickItem(item)}"
+        android:onLongClick="@{() -> handler.onLongClickItem(item)}"
         android:paddingStart="16dp"
         android:paddingTop="8dp"
         android:paddingEnd="16dp"
@@ -28,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:checked="@{item.done}"
-            android:onCheckedChanged="@{(button, check) -> handler.onCheckedItem(item)}"
+            android:onCheckedChanged="@{(button, check) -> handler.onCheckedItem(item, check)}"
             android:text="@{item.content}"
             android:textSize="18sp"
             android:textStyle="bold"
