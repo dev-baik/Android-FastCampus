@@ -8,7 +8,7 @@ data class ContentDto(
     val content: String,
     val category: String,
     val createdDate: Date? = null,
-    val linkCount: Int? = null,
+    val likeCount: Int? = null,
     val commentCount: Int? = null,
     val viewCount: Int? = null
 )
