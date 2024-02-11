@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.chapter03_8.databinding.ActivityMainBinding
 import com.example.chapter03_8.domain.model.Content
 import com.example.chapter03_8.presenter.ui.list.ListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -28,12 +30,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickAdd() {
-
+        InputActivity.start(this)
     }
 
     inner class Handler {
         fun onClickItem(item: Content) {
-
+            InputActivity.start(this@MainActivity, item)
         }
 
         fun onLongClickItem(item: Content): Boolean {
